@@ -1,0 +1,13 @@
+/**
+ * Specific mutation to get customer token for Miniprogram users
+ */
+type Mutation {
+    generateAppletCustomerToken(code: String! encrypted_data: String iv: String): AppletCustomerToken
+    @resolver(
+        class: "\\Zhixing\\WechatLoginGraphQl\\Model\\Resolver\\GenerateCustomerToken")
+    @doc(description:"Retrieve the customer token")
+}
+
+type AppletCustomerToken {
+    token: String @doc(description: "The customer token")
+}
